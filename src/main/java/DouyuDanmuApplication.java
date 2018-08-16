@@ -13,20 +13,20 @@ public class DouyuDanmuApplication {
             thread.start();
         }
     }
+    static class StartCatchDouyuDanmu implements Runnable {
+        private DouyuDanmuClient douyuDanmuClient;
 
-}
-class StartCatchDouyuDanmu implements Runnable {
-    private DouyuDanmuClient douyuDanmuClient;
+        public StartCatchDouyuDanmu(DouyuDanmuClient douyuDanmuClient) {
+            this.douyuDanmuClient = douyuDanmuClient;
+        }
 
-    public StartCatchDouyuDanmu(DouyuDanmuClient douyuDanmuClient) {
-        this.douyuDanmuClient = douyuDanmuClient;
-    }
-
-    public void run() {
-        try {
-            douyuDanmuClient.start();
-        }catch (Exception e){
-            e.printStackTrace();
+        public void run() {
+            try {
+                douyuDanmuClient.start();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 }
+
